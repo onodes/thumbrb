@@ -10,8 +10,7 @@ class Thumb
   end
 
   def rename(filename,add)
-    name = dirname + '/' + filename + add + extname
-    return name
+    dirname + '/' + filename + add + extname
   end
 
 
