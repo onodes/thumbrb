@@ -16,11 +16,8 @@ class Thumb
 
   def convert
     img = Magick::Image::read(@path_r).first
-    new_img1 = img.resize(85,85)
-    new_img1.write(rename(@path_w,'_100_cw85_ch85_thumb'))
-
-    new_img2 = img.resize(595,398)
-    new_img2.write(rename(@path_w,'_595'))
+    img.resize(85,85).write(rename(@path_w,'_100_cw85_ch85_thumb'))
+    img.resize(595,398).write(rename(@path_w,'_595'))
 
     puts filename+"created"
   end
