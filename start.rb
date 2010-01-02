@@ -11,21 +11,17 @@ dir_r = ARGV.to_s.chomp
 dir_w = dir_r.gsub("albums","cache")
 
 
-ary = Dir::glob(dir_r + "*.{jpg,JPG}").map{|filename| Thumb.new(filename)}
+Dir::glob(dir_r + "*.{jpg,JPG}").each{|filename| q.push Thumb.new(filename)}
 
 puts
 puts
 puts "-"*30
 puts "-"*3 + "For zenphoto On PHP Web Album" + "-"*3
 puts "Created by onodes 2009-2010"
-puts 
+puts
 puts "-"*30
 
 sleep 1.5
-
-ary.each{|r|
-  q.push(r)
-}
 
 t1 = Thread.new{
   while(!q.empty?)
