@@ -17,7 +17,9 @@ class Thumb
   end
  
   def rename(filename,add)
-    return  split_ext(filename)[0] + split_ext(filename)[1] + add + split_ext(filename)[2]
+    name=  split_ext(filename)[0] + '/' + split_ext(filename)[1] + add + split_ext(filename)[2]
+    puts name
+    return name
   end
 
 
@@ -29,6 +31,6 @@ class Thumb
     new_img2 = img.resize(595,398)
     new_img2.write(rename(@path_w,'_595'))
 
-    return path_r
+    return @path_r
   end
 end 
