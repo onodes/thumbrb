@@ -24,7 +24,7 @@ puts "-"*30
 sleep 1.5
 
 proc = Proc.new do |n|
-  while(!q.empty?)
+  unless(q.empty?)
     print "Thread#{n} : "
     instance = q.pop
     instance.convert
