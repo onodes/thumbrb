@@ -1,16 +1,10 @@
 require 'rubygems'
 gem PLATFORM =='java'?'rmagick4j' : 'rmagick'
 require'RMagick'
-require'thumbrb'
+require'thumb'
 
 dir_r = ARGV.to_s.chomp
-dir_w = dirname_r.gsub("albums","cache")
+dir_w = dir_r.gsub("albums","cache")
 
 
-dir_r.entries{|file|
-  puts file
-}
-
-
-dir_r.close
-dir.w.close
+p Dir::glob(dir_r + "*.{jpg,JPG}")
