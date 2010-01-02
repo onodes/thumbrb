@@ -31,9 +31,7 @@ proc = Proc.new do |n|
   self.kill
 end
 
-t1 = Thread.new(1, &proc)
-t2 = Thread.new(2, &proc)
-t3 = Thread.new(3, &proc)
+3.times.map{|n| Thread.new(n+1, &proc)} # Thread1,Thread2, Thread3
 
 t1.join
 t2.join
