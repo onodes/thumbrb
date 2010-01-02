@@ -26,8 +26,7 @@ sleep 1.5
 proc = Proc.new do |n|
   unless(q.empty?)
     print "Thread#{n} : "
-    instance = q.pop
-    instance.convert
+    q.pop.convert
   end
   self.kill
 end
