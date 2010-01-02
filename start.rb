@@ -23,32 +23,18 @@ puts "-"*30
 
 sleep 1.5
 
-t1 = Thread.new{
+proc = Proc.new do |n|
   while(!q.empty?)
-    print "Thread1 : "
+    print "Thread#{n} : "
     instance = q.pop
     instance.convert
   end
   self.kill
-}
+end
 
-t2 = Thread.new{
-  while(!q.empty?)
-    print "Thread2 : "
-    instance = q.pop
-    instance.convert
-  end
-  self.kill
-}
-
-t3 = Thread.new{
-  while(!q.empty?)
-    print "Thread3 : "
-    instance = q.pop
-    instance.convert
-  end
-  self.kill
-}
+t1 = Thread.new(1, &proc)
+t2 = Thread.new(2, &proc)
+t3 = Thread.new(3, &proc)
 
 t1.join
 t2.join
