@@ -31,10 +31,6 @@ proc = Proc.new do |n|
   self.kill
 end
 
-3.times.map{|n| Thread.new(n+1, &proc)} # Thread1,Thread2, Thread3
-
-t1.join
-t2.join
-t3.join
+3.times.map{|n| Thread.new(n+1, &proc)}.each(&:join)
 
 puts "End"
