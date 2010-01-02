@@ -32,7 +32,7 @@ class Thumb
   end
 
   def filename
-    @filename ||= File.split(@path_w)[1].gsub(extname,"")
+    @filename ||= File.basename(@path_w).gsub(extname,"")
   end
 
   def dirname
