@@ -7,4 +7,9 @@ dir_r = ARGV.to_s.chomp
 dir_w = dir_r.gsub("albums","cache")
 
 
-p Dir::glob(dir_r + "*.{jpg,JPG}")
+ary = Dir::glob(dir_r + "*.{jpg,JPG}")
+p ary2 = ary.map{|filename| filename.gsub("albums","cache")}
+data = Thumb.new(ary[0],ary2[0])
+data.convert
+
+

@@ -4,7 +4,7 @@ require 'RMagick'
 
 class Thumb
   
-  def initialize(path_r,path_w,opt)
+  def initialize(path_r,path_w,opt='')
     @path_r = path_r
     @path_w = path_w
   end
@@ -17,7 +17,7 @@ class Thumb
   end
  
   def rename(filename,add)
-    return  new_image.write(split_ext(filename)[0] + split_ext(filename)[1] + add + split_ext(filename)[3])
+    return  split_ext(filename)[0] + split_ext(filename)[1] + add + split_ext(filename)[2]
   end
 
 
