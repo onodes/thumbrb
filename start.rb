@@ -1,3 +1,4 @@
+#jruby start.rb /path
 require 'rubygems'
 gem PLATFORM =='java'?'rmagick4j' : 'rmagick'
 require'RMagick'
