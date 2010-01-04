@@ -9,15 +9,15 @@ class Thumb
     @path_w = path_r.gsub("albums","cache")
   end
 
-  def rename(filename,add)
+  def rename(add)
     dirname + '/' + filename + add + extname
   end
 
 
   def convert
     img = Magick::Image::read(@path_r).first
-    img.resize(85,85).write(rename(@path_w,'_100_cw85_ch85_thumb'))
-    img.resize(595,398).write(rename(@path_w,'_595'))
+    img.resize(85,85).write(rename('_100_cw85_ch85_thumb'))
+    img.resize(595,398).write(rename('_595'))
 
     puts filename+"created"
   end
@@ -28,7 +28,7 @@ class Thumb
   end
 
   def filename
-    @filename ||= File.basename(@path_w, extname)
+    @filename ||= File.split(@path_w)[1].gsub(extname,"")
   end
 
   def dirname

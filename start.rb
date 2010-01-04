@@ -11,8 +11,7 @@ dir_r = ARGV.to_s.chomp
 dir_w = dir_r.gsub("albums","cache")
 
 
-Dir::glob(dir_r + "*.{jpg,JPG}").each{|filename| q.push Thumb.new(filename)}
-
+ary = Dir::glob(dir_r + "*.{jpg,JPG}").map{|filename| Thumb.new(filename)}
 puts
 puts
 puts "-"*30
@@ -23,14 +22,40 @@ puts "-"*30
 
 sleep 1.5
 
-proc = Proc.new do |n|
-  unless(q.empty?)
-    print "Thread#{n} : "
-    q.pop.convert
-  end
-  self.kill
-end
 
-3.times.map{|n| Thread.new(n+1, &proc)}.each(&:join)
+ary.each{|r|
+  q.push(r)
+}
+
+t1 = Thread.new{
+  while(!q.empty?)
+    print "Thread1 : "
+    instance = q.pop
+    instance.convert
+  end
+self.kill
+}
+
+t2 = Thread.new{
+  while(!q.empty?)
+    print "Thread2 : "
+    instance = q.pop
+    instance.convert
+  end
+self.kill
+}
+
+t3 = Thread.new{
+  while(!q.empty?)
+    print "Thread3 : "
+    instance = q.pop
+    instance.convert
+  end
+self.kill
+}
+
+t1.join
+t2.join
+t3.join
 
 puts "End"
