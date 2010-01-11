@@ -27,14 +27,13 @@ sleep 1.5
 ary.each{|r|
   q.push(r)
 }
-
+p ary
 t1 = Thread.new{
   while(!q.empty?)
     print "Thread1 : "
     instance = q.pop
     instance.convert
   end
-self.kill
 }
 
 t2 = Thread.new{
@@ -43,7 +42,6 @@ t2 = Thread.new{
     instance = q.pop
     instance.convert
   end
-self.kill
 }
 
 t3 = Thread.new{
@@ -52,7 +50,6 @@ t3 = Thread.new{
     instance = q.pop
     instance.convert
   end
-self.kill
 }
 
 t1.join

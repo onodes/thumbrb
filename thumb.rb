@@ -1,9 +1,11 @@
 require 'rubygems'
-gem PLATFORM == 'java'? 'rmagick4j':'rmagick'
-require 'RMagick'
+#gem PLATFORM == 'java'? 'rmagick4j':'rmagick'
+#require 'RMagick'
+
+
+
 
 class Thumb
-
   def initialize(path_r,opt='')
     @path_r = path_r
     @path_w = path_r.gsub("albums","cache")
