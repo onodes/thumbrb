@@ -1,6 +1,7 @@
 require 'rubygems'
 #gem PLATFORM == 'java'? 'rmagick4j':'rmagick'
 #require 'RMagick'
+
 require 'mini_magick'
 
 
@@ -18,8 +19,8 @@ class Thumb
 
   def convert
     img = MiniMagick::Image::from_file(@path_r)
-    img.resize(85,85).write(rename('_100_cw85_ch85_thumb'))
-    img.resize(595,398).write(rename('_595'))
+    img.resize("85x85").write(rename('_100_cw85_ch85_thumb'))
+    img.resize("595x398").write(rename('_595'))
 
     puts filename+"created"
   end
