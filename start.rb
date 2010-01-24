@@ -1,10 +1,16 @@
 #jruby start.rb /path
+#require 'rubygems'
+#gem PLATFORM =='java'?'rmagick4j' : 'rmagick'
+#require'RMagick'
+#require'thumb'
+#require 'pp'
+#require 'thread'
 require 'rubygems'
-gem PLATFORM =='java'?'rmagick4j' : 'rmagick'
-require'RMagick'
-require'thumb'
-require 'pp'
 require 'thread'
+require 'pp'
+require 'thumb'
+#include Java
+#require '/usr/share/java/jmagick6-6.2.6-0.jar'
 
 q = Queue.new
 
