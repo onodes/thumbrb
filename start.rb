@@ -5,7 +5,7 @@ require'RMagick'
 require'thumb'
 require 'pp'
 require 'thread'
-
+#hensyuu'
 q = Queue.new
 
 dir_r = ARGV.to_s.chomp
