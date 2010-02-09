@@ -10,8 +10,7 @@ q = Queue.new
 
 dir_r = ARGV.to_s.chomp
 dir_w = dir_r.gsub("albums","cache")
-
-
+p dir_r.split
 ary = Dir::glob(dir_r + "*.{jpg,JPG}").map{|filename| Thumb.new(filename)}
 puts
 puts
